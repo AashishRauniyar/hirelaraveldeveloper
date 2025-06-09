@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { 
   Code, 
   Database, 
@@ -191,7 +191,12 @@ export function ComprehensiveServicesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border-0 shadow-lg group">
+            <Card
+              key={index}
+              className="bg-white hover:shadow-xl transition-all duration-300 border-0 shadow-lg group cursor-pointer focus-within:ring-2 focus-within:ring-purple-400"
+              tabIndex={0}
+              role="button"
+            >
               <CardHeader className="pb-4">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center group-hover:from-blue-200 group-hover:to-purple-200 transition-colors">
@@ -205,10 +210,18 @@ export function ComprehensiveServicesSection() {
                   {service.title}
                 </CardTitle>
                 <CardDescription className="text-gray-600 leading-relaxed">
-                  {service.description}
+                  <span className="block group-hover:hidden group-focus-within:hidden">
+                    {service.description.split(".")[0] + (service.description.includes(".") ? "." : "")}
+                  </span>
+                  <span className="hidden group-hover:block group-focus-within:block transition-all duration-300">
+                    {service.description}
+                  </span>
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent
+                className="pt-0 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-screen group-focus-within:opacity-100 group-focus-within:max-h-screen transition-all duration-500 ease-in-out overflow-hidden"
+                aria-hidden="true"
+              >
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start text-sm text-gray-600">

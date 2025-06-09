@@ -65,21 +65,14 @@ export function ServicesSection() {
               <Card
                 key={index}
                 className={cn(
-                  "relative overflow-hidden text-center p-6 border border-gray-200 bg-white group cursor-pointer min-h-[100px] flex items-center justify-center",
+                  "text-center p-6 border border-gray-200 bg-white group",
                   "hover:shadow-lg hover:border-blue-500 hover:scale-105 transition-all duration-300 rounded-lg",
                   service.featured ? "shadow-md border-blue-200" : "shadow-sm",
                 )}
               >
-                {/* Main Title - always visible */}
-                <CardTitle className="text-xl font-semibold text-gray-800 mb-2 z-10 group-hover:opacity-0 transition-opacity duration-300">
-                  {service.title}
-                </CardTitle>
-
-                {/* Details - hidden by default, shown on hover */}
-                <div className="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 absolute inset-0 bg-white flex flex-col justify-center items-center p-6 z-20">
-                  <IconComponent className="w-10 h-10 text-blue-600 mx-auto mb-5" />
-                  <CardDescription className="text-gray-600 text-sm mb-2">{service.description}</CardDescription>
-                </div>
+                <IconComponent className="w-10 h-10 text-blue-600 mx-auto mb-5 transition-transform duration-300 group-hover:scale-110" />
+                <CardTitle className="text-xl font-semibold text-gray-800 mb-2">{service.title}</CardTitle>
+                <CardDescription className="text-gray-600 text-sm">{service.description}</CardDescription>
               </Card>
             )
           })}
