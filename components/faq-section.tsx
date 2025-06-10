@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils" // Import cn
 
 const faqsData = [
   {
-    question: "What makes WPD's 5-round vetting process unique?",
+    question: "What makes HLD's 5-round vetting process unique?",
     answer: "Our rigorous 5-round process includes: (1) Resume & Portfolio Review, (2) Technical Skills Assessment, (3) Laravel-specific Coding Challenge, (4) System Design & Architecture Interview, and (5) Cultural Fit & Communication Evaluation. Only the top 3% of candidates pass all rounds, ensuring you get elite Laravel developers."
   },
   {
@@ -14,8 +14,8 @@ const faqsData = [
     answer: "With our pre-vetted talent pool, you can hire a Laravel developer within 48-72 hours. Our streamlined process eliminates lengthy recruitment cycles, allowing you to start your project immediately with the perfect developer match."
   },
   {
-    question: "What's the difference between WPD and freelance platforms like Upwork?",
-    answer: "Unlike freelance platforms, WPD provides full-time dedicated developers who work exclusively on your project. You get consistent availability, US-based project management, quality assurance, legal compliance, and seamless communication - all backed by our 97% client retention rate."
+    question: "What's the difference between HLD and freelance platforms like Upwork?",
+    answer: "Unlike freelance platforms, HLD provides full-time dedicated developers who work exclusively on your project. You get consistent availability, US-based project management, quality assurance, legal compliance, and seamless communication - all backed by our 97% client retention rate."
   },
   {
     question: "Do your Laravel developers have experience with modern frameworks and tools?",
@@ -62,7 +62,7 @@ const faqsData = [
     answer: "We maintain strict security protocols including signed NDAs, secure development environments, encrypted communication channels, regular security audits, and compliance with GDPR, HIPAA, and SOC 2 standards. Your intellectual property is fully protected."
   },
   {
-    question: "What are the typical costs for hiring Laravel developers through WPD?",
+    question: "What are the typical costs for hiring Laravel developers through HLD?",
     answer: "Our transparent pricing starts at $25/hour for junior developers and goes up to $60/hour for senior architects. Full-time dedicated developers range from $4,000-$9,000/month. We provide detailed quotes based on your specific requirements with no hidden costs."
   }
 ]
@@ -82,7 +82,7 @@ export function FAQSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-600">Everything you need to know about hiring elite Laravel developers through WPD's 5-round vetting process.</p>
+          <p className="text-xl text-gray-600">Everything you need to know about hiring elite Laravel developers through HLD's 5-round vetting process.</p>
         </div>
 
         <div className="space-y-5">

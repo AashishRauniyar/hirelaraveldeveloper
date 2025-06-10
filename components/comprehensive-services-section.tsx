@@ -89,7 +89,7 @@ export function ComprehensiveServicesSection() {
     {
       icon: Cloud,
       title: "Cloud & DevOps Enablement",
-      description: "WPD brings DevOps DNA to every Laravel build, ensuring your applications are as robust in production as they are in staging.",
+      description: "HLD brings DevOps DNA to every Laravel build, ensuring your applications are as robust in production as they are in staging.",
       features: [
         "Dockerized environments and reproducible builds",
         "CI/CD automation (GitHub Actions, GitLab CI, Jenkins)",
@@ -125,7 +125,7 @@ export function ComprehensiveServicesSection() {
     {
       icon: TestTube,
       title: "Automated Testing, QA, and Continuous Delivery",
-      description: "WPD enforces quality at every step—no code is merged without tests and reviews.",
+      description: "HLD enforces quality at every step—no code is merged without tests and reviews.",
       features: [
         "PHPUnit, Pest for automated unit and feature tests",
         "Dusk for browser automation and end-to-end UI testing",
@@ -137,7 +137,7 @@ export function ComprehensiveServicesSection() {
     {
       icon: Headphones,
       title: "Maintenance, Monitoring & 24/7 Support",
-      description: "Our job doesn't end at launch. WPD delivers ongoing support, system health monitoring, and proactive improvements.",
+      description: "Our job doesn't end at launch. HLD delivers ongoing support, system health monitoring, and proactive improvements.",
       features: [
         "24/7 incident monitoring, real-time alerts, and rapid issue response",
         "Regular patching, framework upgrades, and dependency management",

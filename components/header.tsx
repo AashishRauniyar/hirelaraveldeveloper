@@ -34,24 +34,26 @@ export function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo/companyLogo.png?width=60&height=60"
+              src="/logo/logo.png"
               alt="Fishtail Infosolutions Logo"
-              width={60}
-              height={60}
-              className="mr-2"
+              width={80}
+              height={80}
+              className="w-12 h-12 sm:w-16 sm:h-16 mr-2"
             />
             <div>
-              <span className="text-xl font-bold text-gray-800">Fishtail Infosolutions</span>
-              <div className="text-xs text-gray-500 -mt-1">Hire Laravel Developer</div>
+              <span className="text-lg sm:text-xl font-bold text-gray-800">Hire Laravel Developer</span>
+              <div className="text-[10px] sm:text-xs text-gray-500 -mt-0.5 sm:-mt-1">
+                <p>Hire dedicated laravel developers with 97% client retention rate</p>
+              </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -72,7 +74,7 @@ export function Header() {
           <div className="hidden md:block">
             <Button 
               asChild
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-md text-sm font-medium"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-md text-sm font-medium"
             >
               <Link href="/contact">START 7-DAYS TRIAL</Link>
             </Button>
@@ -82,11 +84,11 @@ export function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-blue-600 p-2 focus:outline-none"
+              className="text-gray-600 hover:text-blue-600 p-1.5 sm:p-2 focus:outline-none"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
@@ -95,9 +97,9 @@ export function Header() {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg z-40 overflow-hidden",
+          "md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-white shadow-lg z-40 overflow-hidden",
           "transition-all duration-300 ease-in-out",
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          isMenuOpen ? "max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <nav className="flex flex-col px-4 py-4 space-y-2">
@@ -107,7 +109,7 @@ export function Header() {
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
               className={cn(
-                "block px-3 py-2 rounded-md text-base font-medium transition-colors",
+                "block px-3 py-2.5 rounded-md text-base font-medium transition-colors",
                 isActive(link.href)
                   ? "text-blue-600 bg-blue-50"
                   : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"

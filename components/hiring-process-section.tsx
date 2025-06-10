@@ -30,7 +30,7 @@ export function HiringProcessSection() {
       step: 1,
       title: "Initial Consultation & Discovery",
       icon: MessageCircle,
-      description: "Our process begins with a confidential, obligation-free consultation with a senior WPD project manager based in the U.S.",
+      description: "Our process begins with a confidential, obligation-free consultation with a senior HLD project manager based in the U.S.",
       details: undefined,
       outcome: undefined,
       duration: "30-60 minutes"
@@ -39,7 +39,7 @@ export function HiringProcessSection() {
       step: 2,
       title: "Role Definition & Skill Blueprint",
       icon: FileSearch,
-      description: "WPD's technical lead crafts a detailed Laravel developer role profile based on your needs.",
+      description: "HLD's technical lead crafts a detailed Laravel developer role profile based on your needs.",
       details: undefined,
       outcome: undefined,
       duration: "1-2 business days"
@@ -48,7 +48,7 @@ export function HiringProcessSection() {
       step: 3,
       title: "Candidate Pre-Screening", 
       icon: Users,
-      description: "Our talent acquisition team taps into WPD's exclusive pool of pre-vetted Laravel experts.",
+      description: "Our talent acquisition team taps into HLD's exclusive pool of pre-vetted Laravel experts.",
       details: undefined,
       outcome: undefined,
       duration: "2-3 business days"
@@ -66,7 +66,7 @@ export function HiringProcessSection() {
       step: 5,
       title: "Risk-Free Trial Assignment",
       icon: TestTube,
-      description: "WPD offers a risk-free trial period (typically one to two weeks).",
+      description: "HLD offers a risk-free trial period (typically one to two weeks).",
       details: undefined,
       outcome: undefined,
       duration: "1-2 weeks"
@@ -75,7 +75,7 @@ export function HiringProcessSection() {
       step: 6,
       title: "Seamless Onboarding",
       icon: Rocket,
-      description: "Once you approve your Laravel developer, WPD handles the onboarding logistics.",
+      description: "Once you approve your Laravel developer, HLD handles the onboarding logistics.",
       details: undefined,
       outcome: undefined,
       duration: "2-3 business days"
@@ -93,7 +93,7 @@ export function HiringProcessSection() {
       step: 8,
       title: "Ongoing Support, Feedback, and Scaling",
       icon: LifeBuoy,
-      description: "WPD's dedicated client success team stays in touch, ensuring smooth communication and ongoing satisfaction.",
+      description: "HLD's dedicated client success team stays in touch, ensuring smooth communication and ongoing satisfaction.",
       details: undefined,
       outcome: undefined,
       duration: "Ongoing"
@@ -140,7 +140,7 @@ export function HiringProcessSection() {
     {
       title: "Consulting & Rescue Missions",
       icon: LifeBuoy,
-      structure: "Hire WPD for a technical audit, code review, security analysis, or to rescue a troubled project.",
+      structure: "Hire HLD for a technical audit, code review, security analysis, or to rescue a troubled project.",
       bestFor: "Due diligence, technical debt, performance, or compliance fixes.",
       billing: "Hourly (minimum 20-hour bank, flexible use).",
       scaling: "Flexible based on project needs and urgency.",
@@ -196,7 +196,7 @@ export function HiringProcessSection() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Looking to hire dedicated Laravel developers for your next project? With WPD, the Laravel developer hiring process is streamlined, secure, and designed to match your business with world-class Laravel talent—fast.
+            Looking to hire dedicated Laravel developers for your next project? With HLD, the Laravel developer hiring process is streamlined, secure, and designed to match your business with world-class Laravel talent—fast.
           </p>
         </div>
 

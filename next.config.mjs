@@ -7,15 +7,22 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: [
+      'www.hirelaraveldeveloper.dev',
+      'hirelaraveldeveloper.dev',
+      'fishtailinfosolutions.com',
+      'www.fishtailinfosolutions.com'
+    ],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: process.env.WORDPRESS_HOSTNAME || "your-wordpress-site.com",
-        port: "",
-        pathname: "/**",
+        hostname: "**",
       },
     ],
   },
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
 }
 
 export default nextConfig

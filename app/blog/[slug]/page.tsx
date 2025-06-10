@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Calendar, User } from "lucide-react";
-import { getPostBySlug } from "@/lib/wordpress";
-import type { Metadata } from "next";
+import { Calendar } from "lucide-react";
+import { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -12,103 +11,111 @@ interface BlogPostPageProps {
   };
 }
 
+// This would typically come from your CMS or database
+type BlogPost = {
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  publishedAt: string;
+  author: string;
+  image: string;
+  tags: string[];
+};
+
+// This is a placeholder - replace with actual data fetching
+async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  // Implement your data fetching logic here
+  // For now, returning null to trigger 404
+  return null;
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const slug = params?.slug;
-  if (!slug) {
-    return {
-      title: "Post Not Found",
-    };
-  }
-  
-  const post = await getPostBySlug(slug).catch(() => null);
+  const post = await getBlogPost(params.slug);
   
   if (!post) {
     return {
-      title: "Post Not Found",
+      title: 'Blog Post Not Found',
+      description: 'The requested blog post could not be found.',
     };
   }
 
   return {
-    title: post.title.rendered,
-    description: post.excerpt.rendered.replace(/<[^>]*>/g, ""),
+    title: `${post.title} | HLD Blog`,
+    description: post.description,
     openGraph: {
-      title: post.title.rendered,
-      description: post.excerpt.rendered.replace(/<[^>]*>/g, ""),
-      type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.modified,
-      authors: [post._embedded?.author?.[0]?.name || "WPD"],
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+      tags: post.tags,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [post.image],
+    },
+    alternates: {
+      canonical: `https://www.hirelaraveldeveloper.dev/blog/${post.slug}`,
     },
   };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getPostBySlug(params.slug).catch(() => null);
-
+  const post = await getBlogPost(params.slug);
+  
   if (!post) {
     notFound();
   }
-
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0];
-  const author = post._embedded?.author?.[0];
-  const category = post._embedded?.["wp:term"]?.[0]?.[0];
 
   return (
     <div className="antialiased text-gray-800 bg-white">
       <Header />
       <article className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-4xl">
-          {featuredImage && (
-            <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-lg">
+          {post.image && (
+            <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
               <Image
-                src={featuredImage.source_url}
-                alt={featuredImage.alt_text || post.title.rendered}
+                src={post.image}
+                alt={post.title}
                 fill
                 className="object-cover"
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
 
           <header className="mb-8">
-            {category && (
-              <div className="mb-4">
-                <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-                  {category.name}
-                </span>
-              </div>
-            )}
-
-            <h1
-              className="mb-4 text-4xl font-bold text-gray-900"
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            />
-
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-              {author && (
-                <div className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
-                  <span>{author.name}</span>
-                </div>
-              )}
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <time dateTime={post.date}>
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              {post.title}
+            </h1>
+            
+            <div className="flex items-center text-gray-600 text-sm">
+              <span>By {post.author}</span>
+              <span className="mx-2">•</span>
+              <time dateTime={post.publishedAt}>
+                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
             </div>
           </header>
 
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-          />
+          <div className="prose prose-lg max-w-none">
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
         </div>
       </article>
       <Footer />

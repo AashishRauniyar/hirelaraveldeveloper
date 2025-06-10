@@ -18,14 +18,62 @@ import { LaravelExpertiseSection } from "@/components/laravel-expertise-section"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Hire Dedicated Laravel Developers | FIS - 5 Rounds Vetted Talent",
+  title: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
   description:
-    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. WPD provides skilled Laravel programmers for scalable web applications. 97% client retention. Get started today!",
-  keywords: "hire Laravel developers, dedicated Laravel programmers, vetted Laravel talent, Laravel development services, hire Laravel coders, Laravel web developers",
+    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. HLD provides skilled Laravel programmers for scalable web applications. 97% client retention. Get started today!",
+  keywords: [
+    "hire Laravel developers",
+    "dedicated Laravel programmers",
+    "vetted Laravel talent",
+    "Laravel development services",
+    "hire Laravel coders",
+    "Laravel web developers",
+    "5 rounds vetting process",
+    "elite Laravel developers",
+    "hld laravel hiring",
+    "laravel experts",
+    "custom laravel development",
+    "laravel api development",
+    "laravel saas development",
+    "laravel microservices",
+    "laravel devops"
+  ],
   openGraph: {
-    title: "Hire Dedicated Laravel Developers | WPD - 5 Rounds Vetted Talent",
+    title: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
     description:
-      "Access elite Laravel developers vetted through 5 rigorous rounds. Build scalable, secure applications with WPD's top-tier Laravel talent. 97% client retention rate.",
+      "Access elite Laravel developers vetted through 5 rigorous rounds. Build scalable, secure applications with HLD's top-tier Laravel talent. 97% client retention rate.",
+    url: "https://www.hirelaraveldeveloper.dev",
+    siteName: "HLD - Hire Laravel Developers",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HLD - Hire Elite Laravel Developers",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Dedicated Laravel Developers | HLD",
+    description: "Access elite Laravel developers vetted through 5 rigorous rounds. 97% client retention rate.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://www.hirelaraveldeveloper.dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 

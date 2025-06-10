@@ -11,7 +11,7 @@ export function CaseStudiesSection() {
       title: "Rapid FinTech SaaS Launch",
       client: "Pinewave, a U.S.-based financial startup",
       challenge: "Launch a compliant, secure MVP for a banking platform in under 100 days.",
-      solution: "WPD deployed a senior Laravel developer team using Laravel, Vue.js, and AWS with bank-level encryption. Features included multi-factor authentication, real-time API integrations, and audit logging.",
+      solution: "HLD deployed a senior Laravel developer team using Laravel, Vue.js, and AWS with bank-level encryption. Features included multi-factor authentication, real-time API integrations, and audit logging.",
       results: [
         "Go-live achieved in 78 days",
         "PCI DSS compliance passed on first audit", 
@@ -26,7 +26,7 @@ export function CaseStudiesSection() {
       title: "E-Commerce Platform Modernization",
       client: "Blush Boutique, a fashion retailer with 8,000+ daily users",
       challenge: "Replace legacy PHP with a scalable, mobile-ready e-commerce site supporting flash sales and third-party logistics.",
-      solution: "WPD's dedicated Laravel developers built a new API-first backend, implemented headless checkout, and integrated Shippo, Stripe, and Algolia.",
+      solution: "HLD's dedicated Laravel developers built a new API-first backend, implemented headless checkout, and integrated Shippo, Stripe, and Algolia.",
       results: [
         "42% faster load times",
         "31% increase in conversion rate",
@@ -42,7 +42,7 @@ export function CaseStudiesSection() {
       title: "Healthcare Portal with HIPAA Compliance",
       client: "WellCare Solutions, telemedicine provider",
       challenge: "Migrate from ASP.NET to Laravel, adding secure patient records, video appointments, and e-prescriptions.",
-      solution: "WPD assembled a dedicated Laravel team with healthcare expertise, ensuring encrypted PHI storage, custom user permissions, and secure video API integration.",
+      solution: "HLD assembled a dedicated Laravel team with healthcare expertise, ensuring encrypted PHI storage, custom user permissions, and secure video API integration.",
       results: [
         "Achieved HIPAA compliance",
         "Doubled monthly active users in six months",
@@ -54,7 +54,7 @@ export function CaseStudiesSection() {
       technologies: ["Laravel", "Vue.js", "PostgreSQL", "WebRTC"]
     },
     {
-      title: "EdTech Startup Scales Fast with WPD",
+      title: "EdTech Startup Scales Fast with HLD",
       client: "EdVantage, an online learning platform",
       challenge: "Quickly expand their Laravel-powered LMS to handle 10,000+ concurrent students, while rolling out gamification and video features.",
       solution: "A dedicated pod of three Laravel experts worked hand-in-hand with EdVantage's CTO. The team optimized database queries, introduced Redis caching, built a microservice for streaming, and rolled out new achievement badges—all in 14 weeks.",
@@ -72,7 +72,7 @@ export function CaseStudiesSection() {
 
   const testimonials = [
     {
-      quote: "WPD's dedicated Laravel developer delivered exactly what we needed—on time, on budget, and with code quality that passed our strictest audits. Communication was flawless.",
+      quote: "HLD's dedicated Laravel developer delivered exactly what we needed—on time, on budget, and with code quality that passed our strictest audits. Communication was flawless.",
       author: "Rachel T.",
       role: "VP of Product",
       company: "Pinewave",
@@ -86,21 +86,21 @@ export function CaseStudiesSection() {
       rating: 5
     },
     {
-      quote: "We switched to WPD after a poor experience with another agency, and the difference was night and day. Their attention to security and best practices is world-class.",
+      quote: "We switched to HLD after a poor experience with another agency, and the difference was night and day. Their attention to security and best practices is world-class.",
       author: "Dr. Jonathan Lee",
       role: "CEO",
       company: "WellCare Solutions",
       rating: 5
     },
     {
-      quote: "WPD scaled our Laravel development team in less than a week. We've seen dramatic improvements in performance and stability since.",
+      quote: "HLD scaled our Laravel development team in less than a week. We've seen dramatic improvements in performance and stability since.",
       author: "Tara Benson",
       role: "COO",
       company: "TrackFlow Inc.",
       rating: 5
     },
     {
-      quote: "If you want developers who take ownership, communicate clearly, and deliver results, you want WPD. WPD is the best decision we made all year—responsive, brilliant, and committed.",
+      quote: "If you want developers who take ownership, communicate clearly, and deliver results, you want HLD. HLD is the best decision we made all year—responsive, brilliant, and committed.",
       author: "Samir Desai",
       role: "CTO",
       company: "EdVantage",
@@ -121,7 +121,7 @@ export function CaseStudiesSection() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              When you hire vetted Laravel developers from WPD, you get proven expertise across a diverse range of high-impact projects for startups and enterprises alike.
+              When you hire vetted Laravel developers from HLD, you get proven expertise across a diverse range of high-impact projects for startups and enterprises alike.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export function CaseStudiesSection() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              See why businesses choose to hire Laravel developers from WPD and trust us as their long-term technology partner.
+              See why businesses choose to hire Laravel developers from HLD and trust us as their long-term technology partner.
             </p>
           </div>
 
@@ -241,7 +241,7 @@ export function CaseStudiesSection() {
               Awards & Recognition
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our commitment to excellence in providing best Laravel consultant has earned WPD industry-leading awards and recognition.
+              Our commitment to excellence in providing best Laravel consultant has earned HLD industry-leading awards and recognition.
             </p>
           </div>
 

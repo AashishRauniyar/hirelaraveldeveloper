@@ -57,7 +57,7 @@ export function ComparisonTableSection() {
 
   const providerComparison = [
     {
-      provider: "WPD",
+      provider: "HLD",
       logo: "/logo/companyLogo.png",
       talentVetting: "Top 3%, live interviews, technical tests",
       usBasedManagement: true,
@@ -126,63 +126,63 @@ export function ComparisonTableSection() {
   const hiringComparison = [
     {
       criteria: "Talent Quality",
-      wpd: "Highly vetted, top 3%",
+      hld: "Highly vetted, top 3%",
       inHouse: "Varies by region",
       outsourcing: "Varies by agency",
       icon: Star
     },
     {
       criteria: "Cost",
-      wpd: "$18–$32/hr (avg)",
+      hld: "$18–$32/hr (avg)",
       inHouse: "$65–$120/hr (US avg)",
       outsourcing: "$30–$90/hr (varied)",
       icon: DollarSign
     },
     {
       criteria: "Hiring Speed",
-      wpd: "1–2 weeks",
+      hld: "1–2 weeks",
       inHouse: "4–12 weeks",
       outsourcing: "2–8 weeks",
       icon: Clock
     },
     {
       criteria: "Flexibility",
-      wpd: "Scale up/down anytime",
+      hld: "Scale up/down anytime",
       inHouse: "Hard to scale fast",
       outsourcing: "Project-based, rigid scope",
       icon: Users
     },
     {
       criteria: "Oversight",
-      wpd: "US-based project managers",
+      hld: "US-based project managers",
       inHouse: "Internal managers",
       outsourcing: "Agency PM (offshore)",
       icon: Shield
     },
     {
       criteria: "IP Security",
-      wpd: "NDA, strict contracts",
+      hld: "NDA, strict contracts",
       inHouse: "Internal",
       outsourcing: "Varies",
       icon: Shield
     },
     {
       criteria: "Engagement Models",
-      wpd: "Dedicated, flexible",
+      hld: "Dedicated, flexible",
       inHouse: "FTE only",
       outsourcing: "Fixed or retainer",
       icon: Users
     },
     {
       criteria: "Timezone Alignment",
-      wpd: "Yes",
+      hld: "Yes",
       inHouse: "Yes",
       outsourcing: "Often no",
       icon: Clock
     },
     {
       criteria: "Communication",
-      wpd: "Direct with devs + US PM",
+      hld: "Direct with devs + US PM",
       inHouse: "Internal",
       outsourcing: "May be indirect",
       icon: MessageCircle
@@ -221,11 +221,11 @@ export function ComparisonTableSection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Top Laravel Developer Providers:{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                How WPD Stands Out
+                How HLD Stands Out
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              You have many options to hire Laravel experts—from freelance platforms to global agencies. Here's how WPD compares with other top providers:
+              You have many options to hire Laravel experts—from freelance platforms to global agencies. Here's how HLD compares with other top providers:
             </p>
           </motion.div>
 
@@ -350,7 +350,7 @@ export function ComparisonTableSection() {
           </div>
         </div>
 
-        {/* WPD vs In-House vs Outsourcing */}
+        {/* HLD vs In-House vs Outsourcing */}
         <div>
           <motion.div 
             className="text-center mb-16"
@@ -360,18 +360,18 @@ export function ComparisonTableSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              WPD vs In-House vs Outsourcing:{" "}
+              HLD vs In-House vs Outsourcing:{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 Laravel Developer Comparison
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Making the right hiring decision impacts your project's cost, quality, and delivery speed. Here's how hiring a Laravel developer from WPD compares to building an in-house team or outsourcing to a traditional agency.
+              Making the right hiring decision impacts your project's cost, quality, and delivery speed. Here's how hiring a Laravel developer from HLD compares to building an in-house team or outsourcing to a traditional agency.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* WPD Column */}
+            {/* HLD Column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -387,7 +387,7 @@ export function ComparisonTableSection() {
                   >
                     <Star className="w-8 h-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-2xl font-bold text-purple-900">WPD (Dedicated Developers)</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-purple-900">HLD (Dedicated Developers)</CardTitle>
                   <Badge className="bg-purple-600 text-white">Recommended</Badge>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -404,7 +404,7 @@ export function ComparisonTableSection() {
                       <item.icon className="w-5 h-5 text-purple-600 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <div className="font-semibold text-gray-900 text-sm">{item.criteria}</div>
-                        <div className="text-purple-700 font-medium text-sm">{item.wpd}</div>
+                        <div className="text-purple-700 font-medium text-sm">{item.hld}</div>
                       </div>
                     </motion.div>
                   ))}
@@ -494,7 +494,7 @@ export function ComparisonTableSection() {
           </div>
         </div>
 
-        {/* Why Choose WPD Summary */}
+        {/* Why Choose HLD Summary */}
         <motion.div 
           className="mt-20"
           initial={{ opacity: 0, y: 40 }}
@@ -505,10 +505,10 @@ export function ComparisonTableSection() {
           <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 shadow-xl">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Why Choose WPD for Hiring Vetted Laravel Developers?
+                Why Choose HLD for Hiring Vetted Laravel Developers?
               </h3>
               <p className="text-xl mb-6 text-blue-100">
-                Hiring Laravel coders through WPD is more than just filling a skills gap—it's investing in peace of mind, predictable results, and project success.
+                Hiring Laravel coders through HLD is more than just filling a skills gap—it's investing in peace of mind, predictable results, and project success.
               </p>
               <div className="grid md:grid-cols-3 gap-6 text-left">
                 <motion.div 

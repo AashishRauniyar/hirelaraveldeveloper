@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const metadata = {
-  title: "Contact Us | WPD",
+  title: "Contact Us | HLD",
   description: "Get in touch with our team for your Laravel development needs",
 };
 

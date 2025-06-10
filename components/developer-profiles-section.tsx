@@ -229,7 +229,7 @@ export function DeveloperProfilesSection() {
               Why Our Laravel Developers Are Best in Class
             </h3>
             <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-              With WPD, you don't just hire a Laravel programmer—you get a proven specialist, ready to deliver. Unlike freelance platforms or basic agencies, WPD's multi-stage vetting process ensures you always get the top 3% of Laravel talent.
+              With HLD, you don't just hire a Laravel programmer—you get a proven specialist, ready to deliver. Unlike freelance platforms or basic agencies, HLD's multi-stage vetting process ensures you always get the top 3% of Laravel talent.
             </p>
             <div className="grid md:grid-cols-5 gap-4 text-center">
               <div className="bg-white rounded-lg p-4 shadow-md">
