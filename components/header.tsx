@@ -1,21 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { cn } from "@/lib/utils" // Import cn
+import { cn } from "@/lib/utils"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
-    { href: "#hire-developers", label: "Hire Laravel Developers" },
-    { href: "#about", label: "About" },
-    { href: "#blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
   ]
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === href
+    }
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -42,7 +56,12 @@ export function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-blue-600  transition-colors"
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  isActive(link.href)
+                    ? "text-blue-600"
+                    : "text-gray-600 hover:text-blue-600"
+                )}
               >
                 {link.label}
               </Link>
@@ -51,8 +70,11 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-md text-sm font-medium">
-              START 7-DAYS TRIAL
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-md text-sm font-medium"
+            >
+              <Link href="/contact">START 7-DAYS TRIAL</Link>
             </Button>
           </div>
 
@@ -84,13 +106,21 @@ export function Header() {
               key={link.label}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+              className={cn(
+                "block px-3 py-2 rounded-md text-base font-medium transition-colors",
+                isActive(link.href)
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+              )}
             >
               {link.label}
             </Link>
           ))}
-          <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium mt-2">
-            START 7-DAYS TRIAL
+          <Button 
+            asChild
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium mt-2"
+          >
+            <Link href="/contact">START 7-DAYS TRIAL</Link>
           </Button>
         </nav>
       </div>

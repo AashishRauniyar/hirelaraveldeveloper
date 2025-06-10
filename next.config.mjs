@@ -7,7 +7,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: process.env.WORDPRESS_HOSTNAME || "your-wordpress-site.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 }
 
