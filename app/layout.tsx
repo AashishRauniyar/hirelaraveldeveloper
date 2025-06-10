@@ -114,6 +114,35 @@ const websiteSchema = {
   },
 }
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Laravel Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "WPD",
+    "url": "https://www.wpd.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": ["USA", "UK", "India", "Australia", "Canada"]
+  },
+  "description": "Hire top 3% Laravel developers vetted in 5 rounds. WPD offers custom Laravel web apps, API development, e-commerce, SaaS, DevOps, and more. US-based project management. Start in 7 days.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "18-32",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "minPrice": 18,
+      "maxPrice": 32,
+      "unitCode": "HUR"
+    },
+    "availability": "https://schema.org/InStock"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -124,6 +153,7 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       </head>
       <body className={inter.className}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}

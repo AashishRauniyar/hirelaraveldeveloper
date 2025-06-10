@@ -39,18 +39,11 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[52px] font-extrabold text-gray-900 leading-tight">
-              Hire Dedicated{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Laravel Developers
-              </span>{" "}
-              Through Fishtail Infosolutions
+              Hire Top 3% <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Laravel Developers</span> Vetted in 5 Rounds
             </h1>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Hire dedicated Laravel developers from Fishtail Infosolutions (FI) and transform your web initiatives
-              with elite, security-cleared engineers from around the globe. Gain the firepower of a full-stack
-              Laravel expert—delivering bullet-proof code, transparent reporting, and measurable ROI—
-              without the delays, HR friction, or bloated costs of traditional hiring.
+            <p className="text-lg text-gray-600 leading-relaxed mt-4">
+              Start in 7 days with elite, security-cleared engineers. US-based project oversight, 100% client retention, and rapid onboarding. Scale your web initiatives with WPD—no HR friction, no hidden costs.
             </p>
 
             {/* Key Benefits List */}

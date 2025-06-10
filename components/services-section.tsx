@@ -49,7 +49,7 @@ const serviceSchema = {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-16 lg:py-24 bg-white">
+    <section id="services" className="py-8 lg:py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-4">Our Laravel Development Services</h2>

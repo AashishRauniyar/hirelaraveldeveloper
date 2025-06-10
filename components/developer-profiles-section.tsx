@@ -107,6 +107,8 @@ export function DeveloperProfilesSection() {
     }
   ]
 
+  const topDevelopers = developers.slice(0, 4);
+
   const getSkillIcon = (skill: string) => {
     if (skill.toLowerCase().includes('laravel') || skill.toLowerCase().includes('php')) return Code
     if (skill.toLowerCase().includes('docker') || skill.toLowerCase().includes('aws') || skill.toLowerCase().includes('cloud')) return Cloud
@@ -130,13 +132,13 @@ export function DeveloperProfilesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {developers.map((developer, index) => (
+          {topDevelopers.map((developer, index) => (
             <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-purple-200 group">
               <CardHeader className="text-center pb-4">
                 <div className="relative mx-auto mb-4">
                   <Image
                     src={developer.avatar}
-                    alt={developer.name}
+                    alt={`Laravel developer ${developer.name}`}
                     width={80}
                     height={80}
                     className="rounded-full border-4 border-purple-100 group-hover:border-purple-200 transition-colors"
@@ -147,7 +149,7 @@ export function DeveloperProfilesSection() {
                 </div>
                 <CardTitle className="text-xl font-bold text-gray-900">{developer.name}</CardTitle>
                 <CardDescription className="text-purple-600 font-medium">{developer.role}</CardDescription>
-                
+             
                 <div className="flex items-center justify-center mt-2">
                   <div className="flex text-yellow-400 mr-2">
                     {[...Array(5)].map((_, i) => (
@@ -214,6 +216,12 @@ export function DeveloperProfilesSection() {
             </Card>
           ))}
         </div>
+
+        {developers.length > 4 && (
+          <div className="text-center mt-6">
+            <a href="#" className="text-purple-600 font-semibold hover:underline">See More Laravel Developer Profiles</a>
+          </div>
+        )}
 
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-purple-100">

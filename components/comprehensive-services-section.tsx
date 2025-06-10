@@ -29,36 +29,36 @@ export function ComprehensiveServicesSection() {
     {
       icon: Code,
       title: "Custom Laravel Web Application Development",
-      description: "Our dedicated Laravel developers deliver robust, scalable web applications meticulously crafted to your business logic and vision.",
+      description: "Robust, scalable web apps tailored to your business logic. Fast, secure, and future-ready.",
       features: [
-        "Responsive, accessibility-first user interfaces (WCAG 2.1 compliant)",
-        "Multi-layered authentication and authorization",
-        "Feature flagging for safe rollout and experimentation",
-        "Modular, service-oriented architecture for rapid feature delivery"
+        "WCAG 2.1 accessibility-first UI",
+        "Multi-layered authentication",
+        "Feature flagging for safe rollout",
+        "Modular, rapid feature delivery"
       ],
       category: "Development"
     },
     {
       icon: Database,
-      title: "API and Microservices Development", 
-      description: "WPD Laravel specialists build future-ready RESTful and GraphQL APIs, leveraging Laravel's strengths in routing, middleware, and data serialization.",
+      title: "API & Microservices Development",
+      description: "Future-ready RESTful & GraphQL APIs. Secure, scalable, and well-documented.",
       features: [
-        "JWT, OAuth2, and Laravel Sanctum for secure authentication",
-        "Advanced rate-limiting and abuse prevention",
-        "API versioning, documentation (Swagger/OpenAPI), and automated tests",
-        "Service mesh deployment (Istio/Linkerd) for zero-downtime scaling"
+        "JWT, OAuth2, Sanctum security",
+        "Advanced rate-limiting",
+        "API versioning & automated tests",
+        "Zero-downtime scaling"
       ],
       category: "API Development"
     },
     {
       icon: ShoppingCart,
-      title: "E-Commerce & Headless Commerce Solutions",
-      description: "WPD engineers power online stores—from B2C startups to global multi-storefront enterprises—using Laravel as the digital backbone.",
+      title: "E-Commerce & Headless Commerce",
+      description: "High-converting online stores and headless commerce. Custom checkout, global-ready.",
       features: [
-        "Custom-built checkout, cart, and payment integrations (Stripe, PayPal, Square)",
-        "Multi-currency, multi-language, and region-based tax compliance",
-        "Headless setups (Laravel backend + React/Vue/Next frontend)",
-        "Advanced inventory, order management, CRM, and ERP integrations"
+        "Stripe, PayPal, Square integrations",
+        "Multi-currency & tax compliance",
+        "Headless setups (React/Vue/Next)",
+        "Advanced inventory & CRM"
       ],
       category: "E-Commerce"
     },

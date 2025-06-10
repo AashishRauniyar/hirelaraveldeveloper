@@ -31,8 +31,8 @@ export function HiringProcessSection() {
       title: "Initial Consultation & Discovery",
       icon: MessageCircle,
       description: "Our process begins with a confidential, obligation-free consultation with a senior WPD project manager based in the U.S.",
-      details: "We listen—carefully—to your business goals, project requirements, technology stack, timeline, team dynamics, and any compliance needs.",
-      outcome: "Clear advice on team structure, a realistic feasibility assessment, and an estimated budget.",
+      details: undefined,
+      outcome: undefined,
       duration: "30-60 minutes"
     },
     {
@@ -40,8 +40,8 @@ export function HiringProcessSection() {
       title: "Role Definition & Skill Blueprint",
       icon: FileSearch,
       description: "WPD's technical lead crafts a detailed Laravel developer role profile based on your needs.",
-      details: "Covering not just PHP/Laravel experience but also front-end, DevOps, API, compliance, and communication skills.",
-      outcome: "A transparent 'skills blueprint' to ensure every candidate is tailored to your vision.",
+      details: undefined,
+      outcome: undefined,
       duration: "1-2 business days"
     },
     {
@@ -49,8 +49,8 @@ export function HiringProcessSection() {
       title: "Candidate Pre-Screening", 
       icon: Users,
       description: "Our talent acquisition team taps into WPD's exclusive pool of pre-vetted Laravel experts.",
-      details: "Each candidate is re-screened against your specific requirements—on technical expertise, language proficiency, cultural fit, and timezone overlap.",
-      outcome: "Only top-tier Laravel developers, not generic applicants.",
+      details: undefined,
+      outcome: undefined,
       duration: "2-3 business days"
     },
     {
@@ -58,8 +58,8 @@ export function HiringProcessSection() {
       title: "Live Technical & Cultural Interviews",
       icon: Video,
       description: "You review detailed developer profiles and resumes, then conduct live interviews with your shortlisted candidates.",
-      details: "We encourage both technical questions and practical code challenges, plus behavioral/culture-fit discussions.",
-      outcome: "Total transparency and control—meet your potential developer(s) before you commit.",
+      details: undefined,
+      outcome: undefined,
       duration: "1-2 hours per candidate"
     },
     {
@@ -67,8 +67,8 @@ export function HiringProcessSection() {
       title: "Risk-Free Trial Assignment",
       icon: TestTube,
       description: "WPD offers a risk-free trial period (typically one to two weeks).",
-      details: "So you can assess your developer's coding skills, communication, responsiveness, and collaborative ability in a real-world setting.",
-      outcome: "Peace of mind—only continue if you're 100% satisfied.",
+      details: undefined,
+      outcome: undefined,
       duration: "1-2 weeks"
     },
     {
@@ -76,8 +76,8 @@ export function HiringProcessSection() {
       title: "Seamless Onboarding",
       icon: Rocket,
       description: "Once you approve your Laravel developer, WPD handles the onboarding logistics.",
-      details: "NDA and contract execution (U.S. law), Setting up secure access (GitHub, Jira, Slack, etc.), Introductions and workflow walkthrough.",
-      outcome: "Your developer working on your codebase within days, not weeks or months.",
+      details: undefined,
+      outcome: undefined,
       duration: "2-3 business days"
     },
     {
@@ -85,8 +85,8 @@ export function HiringProcessSection() {
       title: "Sprint-Based Kickoff & Integration",
       icon: Target,
       description: "Your Laravel developer joins daily standups, sprint planning, and code reviews—just like an in-house teammate.",
-      details: "U.S.-based project oversight guarantees time-zone alignment, transparent reporting, and immediate escalation if needed.",
-      outcome: "Real-time updates, detailed progress metrics, and the ability to scale up or down at any sprint boundary.",
+      details: undefined,
+      outcome: undefined,
       duration: "Ongoing"
     },
     {
@@ -94,8 +94,8 @@ export function HiringProcessSection() {
       title: "Ongoing Support, Feedback, and Scaling",
       icon: LifeBuoy,
       description: "WPD's dedicated client success team stays in touch, ensuring smooth communication and ongoing satisfaction.",
-      details: "Replace or add developers with just two weeks' notice, Scale your team as your project evolves, Tap into additional WPD expertise (DevOps, QA, UI/UX, etc.).",
-      outcome: "Flexible, risk-free engagement for every phase of your Laravel project.",
+      details: undefined,
+      outcome: undefined,
       duration: "Ongoing"
     },
     {
@@ -103,8 +103,8 @@ export function HiringProcessSection() {
       title: "Secure, Transparent Billing",
       icon: CreditCard,
       description: "You receive weekly or monthly invoices with full time logs, code contribution reports, and sprint summaries.",
-      details: "No hidden fees, no 'bench' costs, and always full cost visibility.",
-      outcome: "Complete transparency in billing and project progress.",
+      details: undefined,
+      outcome: undefined,
       duration: "Weekly/Monthly"
     }
   ]
@@ -170,6 +170,20 @@ export function HiringProcessSection() {
       description: "New hires or team scale-ups can be deployed in under seven business days."
     }
   ]
+
+  // const hiringSteps = hiringSteps.map(step => ({
+  //   ...step,
+  //   description: step.description.split('.')[0] + '.',
+  //   details: undefined,
+  //   outcome: undefined
+  // }));
+  // const engagementModels = engagementModels.map(model => ({
+  //   ...model,
+  //   structure: model.structure.split('.')[0] + '.',
+  //   bestFor: model.bestFor.split('.')[0] + '.',
+  //   billing: model.billing.split('.')[0] + '.',
+  //   scaling: model.scaling.split('.')[0] + '.'
+  // }));
 
   return (
     <section className="py-16 md:py-24 bg-white">

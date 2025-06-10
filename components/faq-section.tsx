@@ -67,6 +67,11 @@ const faqsData = [
   }
 ]
 
+const shortenedFaqsData = faqsData.slice(0, 10).map(faq => ({
+  ...faq,
+  answer: faq.answer.split('. ').slice(0, 2).join('. ') + '.'
+}));
+
 export function FAQSection() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
@@ -81,7 +86,7 @@ export function FAQSection() {
         </div>
 
         <div className="space-y-5">
-          {faqsData.map((faq, index) => (
+          {shortenedFaqsData.map((faq, index) => (
             <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
               {" "}
               {/* Added overflow-hidden */}

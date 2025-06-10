@@ -370,7 +370,7 @@ const HiringProcessSlider = () => {
 
 export function LaravelExpertiseSection() {
   return (
-    <section id="laravel-expertise" className="py-16 lg:py-24 bg-white overflow-hidden">
+    <section id="laravel-expertise" className="py-8 lg:py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -393,16 +393,20 @@ export function LaravelExpertiseSection() {
             {laravelAdvantages.map((advantage) => {
               const Icon = advantage.icon
               return (
-                <div key={advantage.title} className="group">
-                  <Card className="bg-white shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-300 h-full flex flex-col">
-                    <CardHeader>
-                      <div className="flex items-center mb-3">
-                        <Icon className="w-8 h-8 text-blue-600 mr-3" />
-                        <CardTitle className="text-xl font-semibold text-gray-800">{advantage.title}</CardTitle>
+                <div key={advantage.title} className="group relative cursor-pointer">
+                  <Card className="bg-white shadow-sm border border-gray-200 h-full flex flex-col transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:border-blue-500">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center mb-2">
+                        <Icon className="w-7 h-7 text-blue-600 mr-3 transition-colors group-hover:text-purple-600" />
+                        <CardTitle className="text-lg font-semibold text-gray-800">{advantage.title}</CardTitle>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 text-sm leading-relaxed">{advantage.description}</p>
+                    <CardContent className="flex-grow">
+                      <p className="text-gray-600 text-sm mb-3 line-clamp-1 group-hover:line-clamp-none group-hover:text-gray-700 transition-all duration-300 max-h-6 group-hover:max-h-32 overflow-hidden">
+                        {advantage.description}
+                      </p>
+                      <div className="absolute inset-0 rounded-xl ring-2 ring-purple-200 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300" />
+                      <span className="absolute top-2 right-3 text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-all duration-300">Read more</span>
                     </CardContent>
                   </Card>
                 </div>
