@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "ts-node --project scripts/tsconfig.json scripts/init-db.ts && next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "db:init": "ts-node --project scripts/tsconfig.json scripts/init-db.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@prisma/client": "^6.9.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
     "@radix-ui/react-aspect-ratio": "1.1.1",
@@ -44,17 +46,22 @@
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
+    "dotenv": "^16.5.0",
     "embla-carousel-react": "8.5.1",
     "framer-motion": "^12.16.0",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "marked": "^15.0.12",
+    "mysql2": "^3.14.1",
     "next": "15.2.4",
     "next-themes": "^0.4.4",
+    "nodemailer": "^7.0.3",
+    "prisma": "^6.9.0",
     "react": "^19",
     "react-day-picker": "8.10.1",
     "react-dom": "^19",
     "react-hook-form": "^7.54.1",
+    "react-phone-input-2": "^2.15.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
     "sonner": "^1.7.1",
@@ -65,10 +72,12 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

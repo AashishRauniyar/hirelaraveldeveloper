@@ -8,19 +8,64 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import Image from "next/image"
+import { toast } from "sonner"
+import { SuccessModal } from "@/components/success-modal"
+import { CustomPhoneInput } from "./phone-input"
 
 export function HeroSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    company: "",
     message: "",
-  })
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+      });
+    } catch (error: any) {
+      toast.error(error.message || "Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const partnerLogos = [
     { name: "Google Partner", src: "/placeholder.svg?width=100&height=30", alt: "Google Partner Logo" },
@@ -29,7 +74,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="bg-white py-8 md:py-12 lg:py-16">
+    <section className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6 md:space-y-8">
@@ -117,86 +162,109 @@ export function HeroSection() {
           </div>
 
           <div className="lg:col-span-5 mt-8 lg:mt-0">
-            <Card className="bg-white border-gray-200 shadow-xl rounded-lg">
-              <CardHeader className="p-4 sm:p-6 md:p-8 text-center">
-                <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Get a Custom Quote</CardTitle>
-                <CardDescription className="text-gray-600 mt-2 text-sm md:text-base">
-                  Please complete the requested fields and we'll be in touch within one business day to discuss options
-                  and pricing.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 md:p-8 pt-0">
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Name <span className="text-red-500">*</span>
+            <div className="max-w-xl mx-auto bg-white shadow-xl rounded-2xl p-8 md:p-10 border border-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Get in Touch</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="min-w-0">
+                    <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
+                      Full Name <span className="text-red-500">*</span>
                     </label>
-                    <Input
-                      id="name"
+                    <input
                       type="text"
-                      placeholder="Enter your full name"
+                      id="name"
+                      name="name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={handleChange}
+                      placeholder="John Doe"
+                      className="w-full h-12 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                       required
-                      className="bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email <span className="text-red-500">*</span>
+                  <div className="min-w-0">
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
+                      Email Address <span className="text-red-500">*</span>
                     </label>
-                    <Input
-                      id="email"
+                    <input
                       type="email"
-                      placeholder="Enter your email address"
+                      id="email"
+                      name="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      className="w-full h-12 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                       required
-                      className="bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="min-w-0">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-2">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="Enter your phone number"
+                    <CustomPhoneInput
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      required
-                      className="bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                      onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))}
+                      error={formData.phone && !/^\+?[1-9]\d{1,14}$/.test(formData.phone) ? "Please enter a valid phone number" : undefined}
+                      className="w-full"
+                      inputStyle={{ width: '100%' }}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Message <span className="text-red-500">*</span>
+                  <div className="min-w-0">
+                    <label htmlFor="company" className="block text-sm font-semibold text-gray-800 mb-2">
+                      Company
                     </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us about your project requirements..."
-                      rows={3}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                      className="bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your company name"
+                      className="w-full h-12 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                     />
                   </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Please provide details about your inquiry..."
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition resize-none"
+                    required
+                  />
+                </div>
+                <div className="flex justify-end mt-8">
                   <Button
                     type="submit"
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-md text-base font-semibold shadow-md hover:shadow-lg transition-shadow"
+                    disabled={isSubmitting}
+                    className="w-full md:w-auto px-10 py-3 bg-blue-600 text-white rounded-lg font-semibold text-base shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
                   >
-                    Submit Request
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    {isSubmitting ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Sending...</span>
+                      </div>
+                    ) : (
+                      "Send Message"
+                    )}
                   </Button>
-                </form>
-              </CardContent>
-            </Card>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+      <SuccessModal 
+        isOpen={showSuccessModal} 
+        onClose={() => setShowSuccessModal(false)} 
+      />
     </section>
   )
 }
