@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "ts-node --project scripts/tsconfig.json scripts/init-db.ts && next build",
-    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "start": "node start.js",
+    "start:no-db": "SKIP_DB_INIT=true node start.js",
+    "start:production": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
     "db:init": "ts-node --project scripts/tsconfig.json scripts/init-db.ts"
