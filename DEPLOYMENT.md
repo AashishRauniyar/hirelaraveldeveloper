@@ -33,6 +33,7 @@ The Docker build was failing because the build process was trying to connect to 
 2. Set the following environment variables in Coolify:
    ```env
    MYSQL_HOST=your_mysql_host
+   MYSQL_PORT=3306
    MYSQL_USER=your_mysql_user
    MYSQL_PASSWORD=your_mysql_password
    MYSQL_DATABASE=your_database_name
@@ -49,6 +50,7 @@ If you want to manage the database separately:
 
 Required for database functionality:
 - `MYSQL_HOST` - Database host
+- `MYSQL_PORT` - Database port (default: 3306)
 - `MYSQL_USER` - Database username  
 - `MYSQL_PASSWORD` - Database password
 - `MYSQL_DATABASE` - Database name
