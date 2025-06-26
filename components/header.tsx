@@ -74,7 +74,9 @@ export function Header() {
           <div className="hidden md:block">
             <Button 
               asChild
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-md text-sm font-medium"
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+              aria-label="Start your 7-day trial with Laravel developers"
             >
               <Link href="/contact">START 7-DAYS TRIAL</Link>
             </Button>
@@ -120,7 +122,9 @@ export function Header() {
           ))}
           <Button 
             asChild
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium mt-2"
+            size="lg"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-2"
+            aria-label="Start your 7-day trial with Laravel developers"
           >
             <Link href="/contact">START 7-DAYS TRIAL</Link>
           </Button>

@@ -206,9 +206,9 @@ export function ComprehensiveServicesSection() {
                     {service.category}
                   </span>
                 </div>
-                <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
+                <h3 className="text-xl font-bold text-gray-900 leading-tight">
                   {service.title}
-                </CardTitle>
+                </h3>
                 <CardDescription className="text-gray-600 leading-relaxed">
                   <span className="block group-hover:hidden group-focus-within:hidden">
                     {service.description.split(".")[0] + (service.description.includes(".") ? "." : "")}
@@ -242,7 +242,7 @@ export function ComprehensiveServicesSection() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-3">
                 <Palette className="w-5 h-5 text-purple-600" />
               </div>
-              <CardTitle className="text-lg font-semibold text-gray-900">UI/UX Engineering</CardTitle>
+              <h3 className="text-lg font-semibold text-gray-900">UI/UX Engineering</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm text-gray-600 mb-3">User journey mapping, interactive frontends, accessibility compliance, and rapid prototyping.</p>
@@ -254,7 +254,7 @@ export function ComprehensiveServicesSection() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-3">
                 <Package className="w-5 h-5 text-purple-600" />
               </div>
-              <CardTitle className="text-lg font-semibold text-gray-900">Custom Package Development</CardTitle>
+              <h3 className="text-lg font-semibold text-gray-900">Custom Package Development</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm text-gray-600 mb-3">Reusable internal libraries, open-source packages, and private modules for specialized functionality.</p>
@@ -266,7 +266,7 @@ export function ComprehensiveServicesSection() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-3">
                 <Globe className="w-5 h-5 text-purple-600" />
               </div>
-              <CardTitle className="text-lg font-semibold text-gray-900">Internationalization (i18n)</CardTitle>
+              <h3 className="text-lg font-semibold text-gray-900">Internationalization (i18n)</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm text-gray-600 mb-3">Laravel localization features, RTL support, language switchers, and dynamic translation loading.</p>
@@ -278,7 +278,7 @@ export function ComprehensiveServicesSection() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-3">
                 <FileText className="w-5 h-5 text-purple-600" />
               </div>
-              <CardTitle className="text-lg font-semibold text-gray-900">Data Migration & ETL</CardTitle>
+              <h3 className="text-lg font-semibold text-gray-900">Data Migration & ETL</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm text-gray-600 mb-3">Automated ETL pipelines, large dataset migration with zero data loss, and data cleansing.</p>
@@ -287,7 +287,11 @@ export function ComprehensiveServicesSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+          <Button 
+            size="xl" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+            aria-label="Get a custom quote for your Laravel development project"
+          >
             Get Custom Quote for Your Project
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>

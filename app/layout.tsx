@@ -1,105 +1,107 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
-// import { ThemeProvider } from "@/components/theme-provider" // Assuming ThemeProvider is not used for now
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.hirelaraveldeveloper.dev"), // Replace with your actual domain
   title: {
-    template: "%s | HLD - 5 Rounds Vetted Laravel Developers",
-    default: "HLD - Hire Elite Laravel Developers Vetted in 5 Rounds",
+    default: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
+    template: "%s | Hire Laravel Developer"
   },
   description:
-    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. HLD provides dedicated Laravel programmers with 97% client retention. Scale your projects with elite talent today.",
+    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. HLD provides skilled Laravel programmers for scalable web applications. 97% client retention. Get started today!",
   keywords: [
-    "hire laravel developers",
-    "dedicated laravel programmers",
-    "vetted laravel talent",
-    "laravel development services",
-    "hire laravel coders",
-    "laravel web developers",
+    "hire Laravel developers",
+    "dedicated Laravel programmers", 
+    "vetted Laravel talent",
+    "Laravel development services",
+    "hire Laravel coders",
+    "Laravel web developers",
     "5 rounds vetting process",
-    "elite laravel developers",
+    "elite Laravel developers",
     "hld laravel hiring",
     "laravel experts",
-    "custom laravel development",
-    "laravel api development",
-    "laravel saas development",
-    "laravel microservices",
-    "laravel devops",
+    "custom laravel development"
   ],
+  authors: [{ name: "Fishtail Infosolutions" }],
+  creator: "Fishtail Infosolutions",
+  publisher: "Fishtail Infosolutions",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "HLD - Hire Elite Laravel Developers Vetted in 5 Rounds",
-    description:
-      "Access top 3% Laravel developers vetted through 5 rigorous rounds. Build scalable, secure applications with HLD's elite Laravel talent. 97% client retention rate.",
-    url: "https://www.hirelaraveldeveloper.dev", // Replace with your actual domain
+    type: "website",
+    locale: "en_US",
+    url: "https://www.hirelaraveldeveloper.dev",
+    siteName: "HLD - Hire Laravel Developers",
+    title: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
+    description: "Access elite Laravel developers vetted through 5 rigorous rounds. Build scalable, secure applications with HLD's top-tier Laravel talent. 97% client retention rate.",
     images: [
       {
-        url: "/og-image.png", // Replace with your actual OG image path
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "HLD - Hire Elite Laravel Developers",
       },
     ],
-    siteName: "HLD",
-    type: "website",
-    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HLD - Hire Elite Laravel Developers Vetted in 5 Rounds",
-    description: "Hire top 3% Laravel developers vetted through 5 rigorous rounds. 97% client retention. Scale with elite talent.",
-    // creator: "@HLDHiring", // Replace with your actual Twitter handle
-    images: ["/og-image.png"], // Replace with your actual OG image path
+    title: "Hire Dedicated Laravel Developers | HLD",
+    description: "Access elite Laravel developers vetted through 5 rigorous rounds. 97% client retention rate.",
+    images: ["/og-image.png"],
+    creator: "@hirelaraveldeveloper",
   },
   robots: {
-    // Added robots meta tag
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
-  // icons: { // Example for favicons
-  //   icon: '/favicon.ico',
-  //   apple: '/apple-touch-icon.png',
-  // },
-    generator: 'v0.dev'
+  alternates: {
+    canonical: "https://www.hirelaraveldeveloper.dev",
+  },
+  verification: {
+    google: process.env.GOOGLE_VERIFICATION_ID,
+  },
 }
 
+// Structured Data for Organization
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "HLD",
-  url: "https://www.hirelaraveldeveloper.dev", // Replace with your actual domain
-  logo: "https://www.hirelaraveldeveloper.dev/logo.png", // Replace with your actual logo URL
+  name: "Hire Laravel Developer (HLD)",
+  alternateName: "HLD",
+  url: "https://www.hirelaraveldeveloper.dev",
+  logo: "https://www.hirelaraveldeveloper.dev/logo/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+1-315-215-2005",
-    contactType: "Customer Service",
-    areaServed: ["US", "IN", "UK", "CA", "AU"], // Specify countries served
-    availableLanguage: ["en"],
+    contactType: "sales",
+    availableLanguage: "en"
   },
-  sameAs: [
-    // Add URLs to your social media profiles
-    // "https://www.linkedin.dev/company/hld",
-    // "https://twitter.dev/HLDHiring",
-  ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "459 Columbus Ave #387",
-    addressLocality: "New York",
-    addressRegion: "NY",
-    postalCode: "10024",
-    addressCountry: "US",
+    addressCountry: "US"
   },
+  sameAs: [
+    "https://www.clutch.co/profile/fishtail-infosolutions",
+    "https://www.trustpilot.com/review/hirelaraveldeveloper.dev"
+  ]
 }
 
 const websiteSchema = {
@@ -217,22 +219,42 @@ const faqSchema = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </head>
       <body className={inter.className}>
-        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-        {children}
-        {/* </ThemeProvider> */}
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M9D5NC5994"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-M9D5NC5994');
+          `}
+        </Script>
+        
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )

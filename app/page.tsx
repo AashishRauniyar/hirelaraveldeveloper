@@ -9,6 +9,7 @@ import { HiringProcessSection } from "@/components/hiring-process-section"
 import { ComparisonTableSection } from "@/components/comparison-table-section"
 import { ServicesSection } from "@/components/services-section"
 import { AboutSection } from "@/components/about-section"
+import { TeamShowcaseSection } from "@/components/team-showcase-section"
 import { ProcessSection } from "@/components/process-section"
 import { PricingSection } from "@/components/pricing-section"
 import LaravelBenefits from "@/components/laravel-benefits"
@@ -20,7 +21,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
   description:
-    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. HLD provides skilled Laravel programmers for scalable web applications. 97% client retention. Get started today!",
+    "Hire top 3% Laravel developers vetted through 5 rigorous rounds. HLD provides skilled Laravel programmers for scalable web applications. 97% client retention. Start in 7 days!",
   keywords: [
     "hire Laravel developers",
     "dedicated Laravel programmers",
@@ -30,13 +31,14 @@ export const metadata: Metadata = {
     "Laravel web developers",
     "5 rounds vetting process",
     "elite Laravel developers",
-    "hld laravel hiring",
-    "laravel experts",
-    "custom laravel development",
-    "laravel api development",
-    "laravel saas development",
-    "laravel microservices",
-    "laravel devops"
+    "Laravel experts",
+    "custom Laravel development",
+    "Laravel API development",
+    "Laravel SaaS development",
+    "Laravel microservices",
+    "Laravel DevOps",
+    "Laravel consulting",
+    "Laravel migration services"
   ],
   openGraph: {
     title: "Hire Dedicated Laravel Developers | HLD - 5 Rounds Vetted Talent",
@@ -77,11 +79,78 @@ export const metadata: Metadata = {
   },
 }
 
+// Structured Data for Services
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Laravel Development Services",
+  description: "Hire top 3% Laravel developers vetted through 5 rigorous rounds for custom web applications, APIs, and enterprise solutions.",
+  provider: {
+    "@type": "Organization",
+    name: "Hire Laravel Developer (HLD)",
+    url: "https://www.hirelaraveldeveloper.dev"
+  },
+  areaServed: ["US", "UK", "CA", "AU"],
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: "https://www.hirelaraveldeveloper.dev/contact",
+    servicePhone: "+1-315-215-2005"
+  },
+  offers: {
+    "@type": "Offer",
+    description: "Dedicated Laravel developers starting at $18/hour",
+    priceRange: "$18-$32/hour"
+  }
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How quickly can I hire a Laravel developer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can start working with your vetted Laravel developer in as little as 7 days. Our streamlined hiring process and pre-vetted talent pool ensure rapid deployment."
+      }
+    },
+    {
+      "@type": "Question", 
+      name: "What is the vetting process for Laravel developers?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our 5-round vetting process includes technical assessments, coding challenges, system design interviews, communication evaluation, and cultural fit assessment. Only top 3% of candidates pass."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What are your Laravel developer rates?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our Laravel developers are available at competitive rates of $18-$32 per hour, offering up to 60% cost savings compared to US-based developers while maintaining premium quality."
+      }
+    }
+  ]
+}
+
 export default function Home() {
   return (
     <div className="antialiased text-gray-800 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
       <Header />
-      <main>
+      <main role="main">
         <HeroSection />
         <StatsSection />
         <LaravelAdvantagesSection />
@@ -92,6 +161,7 @@ export default function Home() {
         <ComparisonTableSection />
         <ServicesSection />
         <AboutSection />
+        <TeamShowcaseSection />
         <ProcessSection />
         <PricingSection />
         <LaravelExpertiseSection />

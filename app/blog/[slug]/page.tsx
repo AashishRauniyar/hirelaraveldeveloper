@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Calendar } from "lucide-react";
+// import { Calendar } from "lucide-react"; // Unused import
 import { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -24,7 +24,7 @@ type BlogPost = {
 };
 
 // This is a placeholder - replace with actual data fetching
-async function getBlogPost(slug: string): Promise<BlogPost | null> {
+async function getBlogPost(_slug: string): Promise<BlogPost | null> {
   // Implement your data fetching logic here
   // For now, returning null to trigger 404
   return null;

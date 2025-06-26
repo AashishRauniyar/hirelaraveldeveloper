@@ -35,8 +35,9 @@ export function AboutSection() {
 
             <div className="pt-6">
               <Button
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-medium"
+                size="xl"
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                aria-label="Get a custom quote for Laravel development services"
               >
                 Get A Custom Quote
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -45,14 +46,20 @@ export function AboutSection() {
           </div>
 
           <div className="lg:pl-8">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/about-image.png"
-                alt="Team collaborating on a project"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                alt="Diverse team of Laravel developers collaborating on a project in modern office environment"
+                fill
+                style={{ objectFit: "cover" }}
+                className="rounded-lg transition-transform duration-300 hover:scale-105"
+                priority={false}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-sm font-medium">Our Expert Laravel Team</p>
+                <p className="text-xs opacity-90">30+ Dedicated Developers</p>
+              </div>
             </div>
           </div>
         </div>
