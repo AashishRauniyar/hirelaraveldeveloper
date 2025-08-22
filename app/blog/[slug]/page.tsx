@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { getPostBySlug } from "@/lib/wordpress";
+import type { Post } from "@/lib/wordpress.d";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // This would typically come from your CMS or database
@@ -23,20 +25,40 @@ type BlogPost = {
   tags: string[];
 };
 
-// This is a placeholder - replace with actual data fetching
-async function getBlogPost(_slug: string): Promise<BlogPost | null> {
-  // Implement your data fetching logic here
-  // For now, returning null to trigger 404
-  return null;
+// Function to get blog post by slug using WordPress API
+async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  try {
+    const post = await getPostBySlug(slug);
+
+    // Transform WordPress Post to BlogPost format
+    return {
+      slug: post.slug,
+      title: post.title.rendered,
+      description: post.excerpt?.rendered?.replace(/<[^>]*>/g, "") || "",
+      content: post.content.rendered,
+      publishedAt: post.date,
+      author: post._embedded?.author?.[0]?.name || "Unknown Author",
+      image:
+        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+        "/placeholder.jpg",
+      tags: post._embedded?.["wp:term"]?.[1]?.map((tag: any) => tag.name) || [],
+    };
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
+    return null;
+  }
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getBlogPost(params.slug);
-  
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+
   if (!post) {
     return {
-      title: 'Blog Post Not Found',
-      description: 'The requested blog post could not be found.',
+      title: "Blog Post Not Found",
+      description: "The requested blog post could not be found.",
     };
   }
 
@@ -46,7 +68,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: post.title,
       description: post.description,
-      type: 'article',
+      type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author],
       tags: post.tags,
@@ -60,26 +82,27 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
       images: [post.image],
     },
     alternates: {
-      canonical: `https://www.hirelaraveldeveloper.dev/blog/${post.slug}`,
+      canonical: `https://www.hirelaraveldeveloper.dev/blog/${slug}`,
     },
   };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getBlogPost(params.slug);
-  
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+
   if (!post) {
     notFound();
   }
 
   return (
-    <div className="antialiased text-gray-800 bg-white">
+    <div className="antialiased text-black bg-white">
       <Header />
       <article className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-4xl">
@@ -96,18 +119,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           <header className="mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">
               {post.title}
             </h1>
-            
-            <div className="flex items-center text-gray-600 text-sm">
+
+            <div className="flex items-center text-gray-900 text-sm">
               <span>By {post.author}</span>
               <span className="mx-2">•</span>
               <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
+                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })}
               </time>
             </div>
@@ -121,4 +144,4 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Footer />
     </div>
   );
-} 
+}
